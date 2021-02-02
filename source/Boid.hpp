@@ -11,7 +11,7 @@ namespace boids{
             ~Boid();
             void update();
             void flock(std::list<Boid*>& boids);
-            
+            Vector2D getPosition();
 
         protected:
 

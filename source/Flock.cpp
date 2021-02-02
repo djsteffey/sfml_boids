@@ -22,4 +22,8 @@ namespace boids{
     void Flock::addBoid(float x, float y){
         this->m_boids.push_back(new Boid(x, y));
     }
+
+    std::list<Boid*>& Flock::getBoids(){
+        return this->m_boids;
+    }
 }

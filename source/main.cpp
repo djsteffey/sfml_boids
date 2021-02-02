@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Flock.hpp"
+#include "Vector2D.hpp"
 
 int main(int argc, char** argv){
     // make the boids
@@ -15,6 +16,12 @@ int main(int argc, char** argv){
     // make a window
     sf::RenderWindow rw;
     rw.create(sf::VideoMode(800, 600), "Boids", sf::Style::Close | sf::Style::Titlebar);
+
+    // sprite for drawing boids
+    sf::Texture texture;
+    texture.loadFromFile("boid.png");
+    sf::Sprite sprite;
+    sprite.setTexture(texture);
 
     // loop while the window is open
     while (rw.isOpen()){
@@ -31,7 +38,11 @@ int main(int argc, char** argv){
 
         // draw
         rw.clear();
-
+        for (boids::Boid* boid : flock.getBoids()){
+            boids::Vector2D position = boid->getPosition();
+            sprite.setPosition(position);
+            rw.draw(sprite);
+        }
         rw.display();
     }
 }

@@ -10,7 +10,7 @@ namespace boids{
             ~Flock();
             void update();
             void addBoid(float x, float y);
-            
+            std::list<Boid*>& getBoids();
 
         protected:
 

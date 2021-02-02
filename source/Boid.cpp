@@ -36,6 +36,10 @@ namespace boids{
         // applyForce(migrate);
     }
 
+    Vector2D Boid::getPosition(){
+        return this->m_position;
+    }
+
     void Boid::applyForce(Vector2D force){
         this->m_acceleration += force;
     }
